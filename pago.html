@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,36 +8,54 @@
     <link rel="stylesheet" href="css/pago.css" />
     <title>Modulo de pago</title>
 </head>
+
 <body>
     <div class="container" id="container">
+        
         <div class="form-container crear-container">
             <form>
                 <h1>Depósito/Transferencia Bancaria</h1>
                 <h4>Ingrese los datos requeridos</h4>
                 <label>Tipo de usuario</label>
-               
+                
+                <label>Banco donde realizó el depósito</label>
+                <select>
+                    <option disabled="disabled" selected="">Seleccione </option>
+                    <option>Banco Pichincha</option>
+                    <option>Banco Internacional</option>
+                    <option>Banco de Guayaquil</option>
+                    <option>Banco del Pacífico</option>
+                </select>
+                <input type="email" name="email" placeholder="Ingrese su correo" required="">
+                <label>Valor del depósito</label>
+                <input type="number" name="valor" type="number" min="0.00" max="10000.00" step="0.01" placeholder="0.00">
+                <input type="text" name="sucursal" placeholder="Sucursal" required="">
+
+                <label>Datos</label>
+                <input type="text" name="username" placeholder="Nombre" required="">
+                <input type="text" name="ruc" placeholder="RUC" required="">
+                <input type="text" name="telephone" placeholder="Telefono" required="">
+                <button type="submit" name="register" value="register">Registrar</button>
+
             </form>
+            <a href=""><buttom type="submit">Ver formas de pago</buttom></a>
+            <a href="index.html"><button type="clear" id="apple">Regresar</button></a>
         </div>
         <div class="form-container iniciar-container">
-    
+
             <form action="index.html" target="_blank">
-                
-                <h1>Ingresa los datos de tu tarjeta de crédito/débito</h1>
-                <div>
-                    <img src="">
+                <div id="smart-button-container">
+                    <div ><label for="description">Descripcion del pago: </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="" placeholder="Descripción"></div>
+                      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese una descripción</p>
+                    <div ><label for="amount" >Ingrese valor a pagar: </label><input name="amountInput" type="number" id="amount" value=""  placeholder="USD"></div>
+                      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese un precio</p>
+                    <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+                      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese un Invoice ID</p>
+                    <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+                    <a href="index.html"><button type="clear" id="apple">Regresar</button></a>  
                 </div>
-                <input type="email" name="email" placeholder="Correo" required>
-                <input type="text" name="username" placeholder="Nombre y apellido" required>
-                <input type="text" name="tarjeta" placeholder="Numero de tarjeta" required>
-                <input type="month" name="fecha" min="2022-01" max="2026-01" placeholder="Numero de tarjeta" required>
-                <input type="password" name="codigo" maxlength="3" placeholder="CVC" required>
-                
-                <button type="submit" name="pago" value="pago">Pagar</button>
-                <br>                    
-                <a hre="index.html"><button id="facebook">Pagar con Paypal<img src="https://img10.naventcdn.com/home/RPHOMv3.28.0-RC2/fb.2ed440.svg"></button></a>
-                <br>     
-            </form>
-            <a href="index.html"><button type="clear" id="apple">Regresar</button></a>    
+                  
+            </form>  
         </div>
         <div class="overlay-container">
             <div class="overlay">
@@ -55,4 +74,114 @@
         </div>
     </div>
 </body>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
+
+    var elArr = [description, amount];
+
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
+
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
+
+    function validate(event) {
+      return event.value.length > 0;
+    }
+
+    paypal.Buttons({
+      style: {
+        color: 'blue',
+        shape: 'pill',
+        label: 'pay',
+        layout: 'vertical',
+        
+      },
+
+      onInit: function (data, actions) {
+        actions.disable();
+
+        if(invoiceidDiv.style.display === "block") {
+          elArr.push(invoiceid);
+        }
+
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
+        });
+      },
+
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
+
+        if (amount.value.length < 1) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
+
+        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
+
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) {
+
+          // Full available details
+          console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+          // Show a success message within this page, e.g.
+          const element = document.getElementById('paypal-button-container');
+          element.innerHTML = '';
+          element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          
+        });
+      },
+
+      onError: function (err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>
 </html>
