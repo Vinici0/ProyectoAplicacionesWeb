@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pago.css" />
+    <title>Modulo de pago</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container crear-container">
+            <form>
+                <h1>Depósito/Transferencia Bancaria</h1>
+                <h4>Ingrese los datos requeridos</h4>
+                <label>Tipo de usuario</label>
+               
+            </form>
+        </div>
+        <div class="form-container iniciar-container">
+    
+            <form action="index.html" target="_blank">
+                
+                <h1>Ingresa los datos de tu tarjeta de crédito/débito</h1>
+                <div>
+                    <img src="">
+                </div>
+                <input type="email" name="email" placeholder="Correo" required>
+                <input type="text" name="username" placeholder="Nombre y apellido" required>
+                <input type="text" name="tarjeta" placeholder="Numero de tarjeta" required>
+                <input type="month" name="fecha" min="2022-01" max="2026-01" placeholder="Numero de tarjeta" required>
+                <input type="password" name="codigo" maxlength="3" placeholder="CVC" required>
+                
+                <button type="submit" name="pago" value="pago">Pagar</button>
+                <br>                    
+                <a hre="index.html"><button id="facebook">Pagar con Paypal<img src="https://img10.naventcdn.com/home/RPHOMv3.28.0-RC2/fb.2ed440.svg"></button></a>
+                <br>     
+            </form>
+            <a href="index.html"><button type="clear" id="apple">Regresar</button></a>    
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Pago en línea</h1>
+                    <p>Realizar pago con tarjeta de crédito/débito</p>
+                    <button class="ghost" id="iniciarS">Iniciar Sesión</button>
+                </div>
+
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Paga ahora!</h1>
+                    <p>Realizar pago mediante depósito o transferencia bancaria</p>
+                    <button class="ghost" id="registro">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
