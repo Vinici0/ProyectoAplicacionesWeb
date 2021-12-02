@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/pago.css" />
+    
     <title>Modulo de pago</title>
 </head>
 
@@ -14,29 +15,23 @@
         
         <div class="form-container crear-container">
             <form>
-                <h1>Depósito/Transferencia Bancaria</h1>
-                <h4>Ingrese los datos requeridos</h4>
-                <label>Tipo de usuario</label>
-                
-                <label>Banco donde realizó el depósito</label>
+                <h3>Depósito/Transferencia Bancaria</h3>
+                <input type="text" name="username" placeholder="Nombres" required="">
+                <input type="email" name="email" placeholder="Ingrese su correo" required="">  
                 <select>
-                    <option disabled="disabled" selected="">Seleccione </option>
+                    <option disabled="disabled" selected="">Banco donde realizó el depósito </option>
                     <option>Banco Pichincha</option>
                     <option>Banco Internacional</option>
                     <option>Banco de Guayaquil</option>
                     <option>Banco del Pacífico</option>
                 </select>
-                <input type="email" name="email" placeholder="Ingrese su correo" required="">
-                <label>Valor del depósito</label>
-                <input type="number" name="valor" type="number" min="0.00" max="10000.00" step="0.01" placeholder="0.00">
-                <input type="text" name="sucursal" placeholder="Sucursal" required="">
-
-                <label>Datos</label>
-                <input type="text" name="username" placeholder="Nombre" required="">
-                <input type="text" name="ruc" placeholder="RUC" required="">
+                <input type="text" name="referencia" placeholder="Número de referencia" required="">
+                <input type="number" name="valor" type="number" min="0.00" max="10000.00" step="0.01" placeholder="Valor del depósito">   
+                <input type="text" name="ruc" placeholder="Cédula/RUC" required="">
                 <input type="text" name="telephone" placeholder="Telefono" required="">
-                <button type="submit" name="register" value="register">Registrar</button>
-
+                <label>Adjuntar depósito (pdf, png, jpg)</label>
+                <input type="file" name="file" placeholder="Archivo pdf" required="">
+                <button type="submit" name="pagar" value="pagar">Pagar</button>
             </form>
             <a href=""><buttom type="submit">Ver formas de pago</buttom></a>
             <a href="index.html"><button type="clear" id="apple">Regresar</button></a>
@@ -52,10 +47,11 @@
                     <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
                       <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Por favor ingrese un Invoice ID</p>
                     <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
-                    <a href="index.html"><button type="clear" id="apple">Regresar</button></a>  
+                      
                 </div>
-                  
+               <button type="clear" id="regresar"> <a href="index.html">Regresar</a></button>
             </form>  
+           
         </div>
         <div class="overlay-container">
             <div class="overlay">
@@ -74,7 +70,7 @@
         </div>
     </div>
 </body>
-
+<script src="js/pago.js"></script>
   <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
   function initPayPalButton() {
@@ -184,4 +180,5 @@
   }
   initPayPalButton();
   </script>
+  
 </html>
