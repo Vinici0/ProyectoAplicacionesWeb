@@ -110,12 +110,23 @@ header .contenedor-texto .texto .profecion {
     line-height: 34px;
     margin-bottom: 40px;
     font-weight: 300;
-    color: #dd820d;
+    color: #007491;
     text-align: center;
 }
 
+.texto .monkey {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #063158;
+    letter-spacing: 6px;
+}
+.texto .monkey-2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(10, 121, 196);
+}
+
 .main .acerca-de .texto .bold {
-    color: #3895ea;
     text-decoration: underline;
 }
 
@@ -193,6 +204,8 @@ header .contenedor-texto .texto .profecion {
     width: 85%;
     border-radius: 20px;
     background: #fff;
+    border: 1px solid #000;
+    margin: 2rem 0;
 }
 
 .titule_medical {
