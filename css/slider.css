@@ -1,0 +1,140 @@
+.loader_bg{
+    position: fixed;
+    z-index: 999999;
+    background: rgb(34, 130, 255);
+    width: 100%;
+    height: 100%;
+}
+.loader{
+    border: 0 soild transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+}
+.loader:before, .loader:after{
+    content: '';
+    border: 1em solid #252525;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 3s linear infinite;
+    opacity: 0;
+}
+.loader:before{
+    animation-delay: .5s;
+}
+@keyframes loader{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/*Slider*/
+
+.article{
+    
+  margin:auto;
+  width:100%;
+}
+
+.cont-article {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    width: 65%;
+    padding: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .cont-article > ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .cont-article > ul.slider {
+    position: relative;
+    width: 820px;
+    height: 350px;
+  }
+  
+  .cont-article > ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity 0.5s;
+    background: #fff;
+  }
+  
+  .cont-article > ul.slider li img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+  
+  .cont-article > ul.slider li:first-child {
+    opacity: 1;
+    /*Mostramos el primer <li>*/
+  }
+  
+  .cont-article > ul.slider li:target {
+    opacity: 1;
+    /*Mostramos el <li> del enlace que pulsemos*/
+  }
+  
+  .cont-article .menu1 {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .cont-article .menu1 li {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .cont-article .menu1 li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(18, 117, 175);
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 100%;
+  }
+
+  .mapa {
+    grid-area: mapa;
+  }
+
+ #ubicacion{
+    font-size: 30px;
+    padding-left: 50px;
+    color: rgb(27, 110, 189);
+  }
+
+  #hr{
+    width: 94%;
+    margin-bottom: 40px;
+  }
+  
+  /*Fin del slider*/

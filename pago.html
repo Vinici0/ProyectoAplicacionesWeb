@@ -6,11 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/pago.css" />
-    
+    <link rel="stylesheet" href="css/slider.css" />
     <title>Modulo de pago</title>
 </head>
 
 <body>
+  <div class="loader_bg">
+    <div class="loader">
+
+    </div>
+  </div>
     <div class="container" id="container">
         
         <div class="form-container crear-container">
@@ -70,7 +75,14 @@
         </div>
     </div>
 </body>
+<script>
+  setTimeout(function(){
+      $('.loader_bg').fadeToggle();
+  }, 1500);
+</script>
 <script src="js/pago.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
   <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
   <script>
   function initPayPalButton() {

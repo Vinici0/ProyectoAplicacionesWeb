@@ -91,6 +91,11 @@ header .contenedor-texto .texto .profecion {
     margin-top: -60px;
 }
 
+.prue-fot:hover{
+    filter: sepia(60%);
+}
+
+
 .main .acerca-de .foto img {
     vertical-align: top;
     border-radius: 50%;
@@ -175,6 +180,8 @@ header .contenedor-texto .texto .profecion {
     width: 100%;
     vertical-align: top;
     border-radius: 4px;
+    box-shadow: 0px 15px 5px rgba(0,0,0,0.50);
+    cursor: pointer;
 }
 
 .main .trabajos .contenedor-trabajos .trabajo .descripcion {

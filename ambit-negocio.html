@@ -12,18 +12,23 @@
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/ambit.css">
-
-    <title>IMC</title>
+    <link rel="stylesheet" href="css/slider.css" />
+    <title>Ambito de negocio</title>
 </head>
 
 <body>
+    <div class="loader_bg">
+        <div class="loader">
+    
+        </div>
+      </div>
     <header>
         <div class="contenedor">
             <nav class="menu">
                 <a href="index.html">Home</a>
                 <a href="about.html">Quienes somos</a>
                 <a href="ambit-negocio.html">Ambito del negocio</a>
-                <a href="index.html">Profesionales a cargo</a>
+                <a href="profecionales.html">Profesionales a cargo</a>
                 <a href="pago.html">Modulos de pago</a>
             </nav>
 
@@ -132,7 +137,7 @@
                 <td colspan="2">
                     <div>
                         <i class="fas fa-search-dollar"></i>
-                        <strong>Feuntes de Ingresos</strong>
+                        <strong>Fuentes de Ingresos</strong>
                         <p>Principalmente la venta del servicio como tal <br>
                             Son pagos únicos o recurrente (mensuales) que se pueden aceptar <br>
                             Ademas de que nosotros manejamos lo que son cuotas y un plus sin duda son la atención por
@@ -231,5 +236,10 @@
 
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
 </html>
