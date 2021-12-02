@@ -7,3 +7,7 @@ Integrantes del grupo:
 - Kevin Paute
 - María José Párraga
 - Bryan Solorzano 
+- 
+Se desea determinar un sitio con las siguientes páginas:
+• Home
+• Quienes Somos
