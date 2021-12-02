@@ -12,11 +12,16 @@
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/ambit.css">
-
-    <title>IMC</title>
+    <link rel="stylesheet" href="css/slider.css" />
+    <title>Ambito de negocio</title>
 </head>
 
 <body>
+    <div class="loader_bg">
+        <div class="loader">
+    
+        </div>
+      </div>
     <header>
         <div class="contenedor">
             <nav class="menu">
@@ -233,5 +238,10 @@
 
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
 </html>
