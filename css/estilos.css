@@ -266,7 +266,7 @@ header .contenedor-texto .texto .profecion {
 
 /* ------ ------ FOOTER ------- -----*/
 footer {
-    padding: 60px 0;
+    padding: 10px 0;
 }
 
 footer .contacto .titulo {
@@ -349,4 +349,42 @@ footer .redes-sociales a {
     border-radius: 3px;
     font-size: 30px;
     margin: 0 20px;
+}
+.opcion {
+    width: 25%;
+    height: 100%;
+    color: white;
+    display: grid;
+    padding: 2%;
+    
+}
+
+.fondofooter{
+    background: url("../img/footer.jpg");
+    
+}
+
+.opcion a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    margin-top: 20px;
+   
+   
+}
+
+.opcion h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(3, 0, 48);
+}
+
+.opcion h2:hover{
+    color: rgb(0, 106, 133);
+}
+
+.opcion a:hover{
+
+
+    color: rgb(0, 106, 133);
 }
