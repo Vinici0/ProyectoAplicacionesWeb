@@ -5,8 +5,9 @@
     /*Para que todo tenga la misma cantidad de anchura*/
 }
 
+/* CAMBIO DEL FONDO */
 body {
-    background: #fff;
+    background: rgba(16, 101, 170, 0.26);
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
 }
@@ -91,10 +92,9 @@ header .contenedor-texto .texto .profecion {
     margin-top: -60px;
 }
 
-.prue-fot:hover{
+.prue-fot:hover {
     filter: sepia(60%);
 }
-
 
 .main .acerca-de .foto img {
     vertical-align: top;
@@ -166,10 +166,26 @@ header .contenedor-texto .texto .profecion {
     justify-content: space-between;
 }
 
+/* ----------------------------------------------- */
+/* PARTE DE CAMBIAR LA LETRA Y EL FONDO TAMBIEN*/
 .main .trabajos .contenedor-trabajos .trabajo {
     width: 23%;
     margin-bottom: 40px;
+    font-family: Geneva, Verdana, sans-serif;
 }
+
+.main .trabajos {
+    background: rgba(51, 2, 114, 0.267);
+}
+
+.main .trabajos .contenedor-trabajos {
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 20px;
+
+    padding: 20px 10px;
+}
+/* ---------------------------------------------- */
 
 .main .trabajos .contenedor-trabajos .trabajo .thumb {
     width: 100%;
@@ -180,7 +196,7 @@ header .contenedor-texto .texto .profecion {
     width: 100%;
     vertical-align: top;
     border-radius: 4px;
-    box-shadow: 0px 15px 5px rgba(0,0,0,0.50);
+    box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
@@ -363,12 +379,10 @@ footer .redes-sociales a {
     color: white;
     display: grid;
     padding: 2%;
-    
 }
 
-.fondofooter{
+.fondofooter {
     background: url("../img/footer.jpg");
-    
 }
 
 .opcion a {
@@ -376,8 +390,6 @@ footer .redes-sociales a {
     color: black;
     font-size: 14px;
     margin-top: 20px;
-   
-   
 }
 
 .opcion h2 {
@@ -386,12 +398,10 @@ footer .redes-sociales a {
     color: rgb(3, 0, 48);
 }
 
-.opcion h2:hover{
+.opcion h2:hover {
     color: rgb(0, 106, 133);
 }
 
-.opcion a:hover{
-
-
+.opcion a:hover {
     color: rgb(0, 106, 133);
 }
